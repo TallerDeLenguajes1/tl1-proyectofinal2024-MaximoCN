@@ -1,3 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Personajes;
 
+
+FabricaDePersonajes fabrica= new FabricaDePersonajes();
+List<Personaje> avengers = fabrica.crearAvengers();
