@@ -8,11 +8,13 @@ public class Personaje
     private Datos datos;
     public Datos Datos { get => datos; set => datos = value; }
 
+#pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
     public Personaje(int velocidad,int destreza,int fuerza,int armadura,int salud,string tipo,string nombre, string fechadeNacimiento,int edad, string apodo){
     
-        Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud);
-        Datos= new Datos(tipo,nombre,fechadeNacimiento,edad,apodo);
+      Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud);
+      Datos= new Datos(tipo,nombre,fechadeNacimiento,edad,apodo);
     }
+#pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
 }
 
 public class Caracteristicas
@@ -78,7 +80,7 @@ public class Datos
 
         avengers.Add(new Personaje(8, 4, 8, 7, 100, "Héroe", "Capitán América", "04/07/1918", 106, "Cap"));
 
-        avengers.Add(new Personaje(9, 6, 8, 8, 100, "Héroe", "Thor", "12/04/965", 1056, "Dios del Trueno"));
+        avengers.Add(new Personaje(9, 6, 8, 8, 100, "Héroe", "Thor", "12/04/desc", 300, "Dios del Trueno"));
 
         avengers.Add(new Personaje(7, 3, 7, 6, 100, "Héroe", "Hulk", "30/12/1979", 43, "Bruce Banner"));
 

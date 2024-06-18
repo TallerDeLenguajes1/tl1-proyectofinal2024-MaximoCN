@@ -27,3 +27,18 @@ c:\Users\ROG BY NG\Desktop\Taller\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.
 c:\Users\ROG BY NG\Desktop\Taller\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.pdb
 C:\Users\ROG BY NG\Desktop\Taller\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.genruntimeconfig.cache
 C:\Users\ROG BY NG\Desktop\Taller\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\ref\tl1-proyectofinal2024-MaximoCN.dll
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\bin\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.exe
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\bin\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.deps.json
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\bin\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.runtimeconfig.json
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\bin\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.dll
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\bin\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.pdb
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.AssemblyInfoInputs.cache
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.AssemblyInfo.cs
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.csproj.CoreCompileInputs.cache
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.sourcelink.json
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.dll
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\refint\tl1-proyectofinal2024-MaximoCN.dll
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.pdb
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\tl1-proyectofinal2024-MaximoCN.genruntimeconfig.cache
+c:\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\obj\Debug\net8.0\ref\tl1-proyectofinal2024-MaximoCN.dll
