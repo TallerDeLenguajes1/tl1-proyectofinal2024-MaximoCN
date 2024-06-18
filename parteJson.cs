@@ -1,7 +1,8 @@
-
+namespace jsonp;
 using System.Text.Json;
 using Personajes;      
 using System.IO;
+using System;
 
 public class PersonajesJson{
     
@@ -26,5 +27,27 @@ public class PersonajesJson{
            return personajes;
        }
 
+
+      public bool Existe(string NombreArchivo)
+    {
+        string ruta = @"C:\Users\Alumno\Desktop\intento\tl1-proyectofinal2024-MaximoCN\"; // Ruta corregida
+        string archivo = Path.Combine(ruta, NombreArchivo);
+
+        if (File.Exists(archivo))
+        {
+            // Verificar si el archivo tiene datos
+            string fileContent = File.ReadAllText(archivo);
+            return !string.IsNullOrEmpty(fileContent);
+        }
+
+        return false; // El archivo no existe
+    }
+
+    internal void GuardarPersonajes(FabricaDePersonajes lista, string v)
+    {
+        throw new NotImplementedException();
+    }
 }
+
+
  
