@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Alumno\\Desktop\\intento}\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj": {}
+    "C:\\Users\\ROG BY NG\\Desktop\\TP09\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Alumno\\Desktop\\intento}\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj": {
+    "C:\\Users\\ROG BY NG\\Desktop\\TP09\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Alumno\\Desktop\\intento}\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj",
+        "projectUniqueName": "C:\\Users\\ROG BY NG\\Desktop\\TP09\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj",
         "projectName": "tl1-proyectofinal2024-MaximoCN",
-        "projectPath": "c:\\Users\\Alumno\\Desktop\\intento}\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj",
-        "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Alumno\\Desktop\\intento}\\tl1-proyectofinal2024-MaximoCN\\obj\\",
+        "projectPath": "C:\\Users\\ROG BY NG\\Desktop\\TP09\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj",
+        "packagesPath": "C:\\Users\\ROG BY NG\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ROG BY NG\\Desktop\\TP09\\tl1-proyectofinal2024-MaximoCN\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ROG BY NG\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

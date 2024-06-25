@@ -3,50 +3,51 @@ using System.Text.Json;
 using Personajes;      
 using System.IO;
 using System;
+using TrabajandoJson;
 
 public class PersonajesJson{
-    
+    const string NombreArchivo = "personajes.json";
+     private HelperDeJson miHelperdeArchivos = new HelperDeJson();
+
+
        public void GuardarPersonajes(List<Personaje> personaje,string NombreArchivo )
        {
-             string PersonajeString = JsonSerializer.Serialize(personaje);
-             string ruta = @"\\Users\Alumno\Desktop\intento}\tl1-proyectofinal2024-MaximoCN\";
-             File.WriteAllText(Path.Combine(ruta, NombreArchivo), PersonajeString);
-
+            Console.WriteLine("--Serializando--");
+            string persoJson = JsonSerializer.Serialize(personaje);
+            Console.WriteLine("Archivo Serializado : " + persoJson);
+            Console.WriteLine("--Guardando--");
+            miHelperdeArchivos.GuardarArchivoTexto(NombreArchivo, persoJson);
 
        }
 
       
-      public List<Personaje> LeerPersonajes(string TextPer)
+      public List<Personaje> LeerPersonajes(string NombreArchivo)
        {
-          List<Personaje> personajes = new List<Personaje>();
-
-           string mitexto = File.ReadAllText(TextPer);
-
-           personajes = JsonSerializer.Deserialize<List<Personaje>>(mitexto);
-
-           return personajes;
+           Console.WriteLine("--Abriendo--");
+            string jsonDocument = miHelperdeArchivos.AbrirArchivoTexto(NombreArchivo);
+            Console.WriteLine("--Deserializando--");
+            var listadopersonaje = JsonSerializer.Deserialize<List<Personaje>>(jsonDocument);
+            Console.WriteLine("--Mostrando datos recuperardos--");
+            return listadopersonaje;
        }
 
 
-      public bool Existe(string NombreArchivo)
-    {
-        string ruta = @"C:\Users\Alumno\Desktop\intento\tl1-proyectofinal2024-MaximoCN\"; // Ruta corregida
-        string archivo = Path.Combine(ruta, NombreArchivo);
-
-        if (File.Exists(archivo))
+      public bool Existe(string nombreArchivo)
         {
-            // Verificar si el archivo tiene datos
-            string fileContent = File.ReadAllText(archivo);
-            return !string.IsNullOrEmpty(fileContent);
+            if (File.Exists(nombreArchivo))
+            {
+                // Verificar si el archivo tiene datos
+                string fileContent = File.ReadAllText(nombreArchivo);
+                return !string.IsNullOrEmpty(fileContent);
+            }
+            return false; // El archivo no existe o está vacío
         }
 
-        return false; // El archivo no existe
-    }
+   
+}
 
-    internal void GuardarPersonajes(FabricaDePersonajes lista, string v)
-    {
-        throw new NotImplementedException();
-    }
+public class  HistorialJson{
+    
 }
 
 
