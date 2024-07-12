@@ -1,7 +1,7 @@
 
 using System;
-namespace Personajes; 
-public class Personaje
+namespace PersonajeEspacio; 
+public class Personajes
 {
      public Caracteristicas Caracteristicas { get; set; }
 
@@ -9,9 +9,9 @@ public class Personaje
     public Datos Datos { get => datos; set => datos = value; }
 
 #pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
-    public Personaje(int velocidad,int destreza,int fuerza,int armadura,int salud,string tipo,string nombre, string fechadeNacimiento,int edad, string apodo){
+    public Personajes(int velocidad,int destreza,int fuerza,int armadura,int explocion,int salud,string tipo,string nombre, string fechadeNacimiento,int edad, string apodo){
     
-      Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud);
+      Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud,explocion);
       Datos= new Datos(tipo,nombre,fechadeNacimiento,edad,apodo);
     }
 #pragma warning restore CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
@@ -24,14 +24,17 @@ public class Caracteristicas
         private int fuerza;     //1 a 10
         private int armadura;   //1 a 10
         private int salud; //100
+        private int explocion; //1 a 10
 
-    public Caracteristicas(int velocidad, int destreza, int fuerza, int armadura, int salud)
+    public Caracteristicas(int velocidad, int destreza, int fuerza, int armadura,int explocion, int salud)
     {
         this.velocidad = velocidad;
         this.destreza = destreza;
         this.fuerza = fuerza;
         this.armadura = armadura;
         this.salud = salud;
+        this.Explocion= explocion;
+        
     }
     public int Salud { get => salud; set => salud = value; }
     public int Fuerza { get => Fuerza1; set => Fuerza1 = value; }
@@ -39,6 +42,7 @@ public class Caracteristicas
     public int Fuerza1 { get => fuerza; set => fuerza = value; }
     public int Destreza { get => destreza; set => destreza = value; }
     public int Velocidad { get => velocidad; set => velocidad = value; }
+    public int Explocion { get => explocion; set => explocion = value; }
 }
 
 
@@ -70,25 +74,33 @@ public class Datos
 
  public class FabricaDePersonajes
  {
-   public List<Personaje> crearAvengers()
+   public List<Personajes> crearAvengers()
+
    {
-       List<Personaje> avengers = new List<Personaje>();
+       Random CaracteristicasRamdom=new Random();
 
-        avengers.Add(new Personaje(10,7,4,4,100,"heroe", "Peter parker","10/08/2001",23,"Spiderman"));
+       List<Personajes> avengers = new List<Personajes>();
 
-        avengers.Add(new Personaje(10, 5, 6, 10, 100, "Héroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,"heroe", "Peter parker","10/08/2001",23,"Spiderman"));
 
-        avengers.Add(new Personaje(8, 4, 8, 7, 100, "Héroe", "Capitán América", "04/07/1918", 106, "Cap"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100, "Héroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
 
-        avengers.Add(new Personaje(9, 6, 8, 8, 100, "Héroe", "Thor", "12/04/desc", 300, "Dios del Trueno"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100, "Héroe", "Capitan America", "04/07/1918", 106, "Cap"));
 
-        avengers.Add(new Personaje(7, 3, 7, 6, 100, "Héroe", "Hulk", "30/12/1979", 43, "Bruce Banner"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100, "Heroe", "Thor", "12/04/desc", 300, "Dios del Trueno"));
 
-        avengers.Add(new Personaje(9, 9, 10, 8, 100, "Villano", "Thanos", "01/01/desc", 300, "Thanos"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100, "Heroe", "Hulk", "30/12/1979", 43, "Bruce Banner"));
 
-        avengers.Add(new Personaje(7, 8, 9, 7, 100, "Villano", "Loki", "01/01/desc", 300, "Loki"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100, "Villano", "Thanos", "01/01/desc", 300, "Thanos"));
 
-        avengers.Add(new Personaje(6, 5, 7, 6, 100, "Villano", "Ultron", "01/01/desc", 5, "Ultron"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100, "Villano", "Loki", "01/01/desc", 300, "Loki"));
+
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100, "Villano", "Ultron", "01/01/desc", 5, "Ultron"));
+
+        avengers.Add(new Personajes( CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,"heroe","Hawkeye","09/02/1969",45,"ojo de halcon"));
+
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,"Villano","Hela","09/12/desc",5,"Hela");
+       
         
         return avengers;
    }
