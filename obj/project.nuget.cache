@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "17aa5RZ/Now=",
+  "dgSpecHash": "2aWsCFqrvKI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ROG BY NG\\Desktop\\TP09\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "c:\\Users\\ROG BY NG\\Desktop\\TP09\\tl1-proyectofinal2024-MaximoCN\\tl1-proyectofinal2024-MaximoCN.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ROG BY NG\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

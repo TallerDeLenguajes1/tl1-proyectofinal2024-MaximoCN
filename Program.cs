@@ -1,40 +1,62 @@
-﻿using jsonp;
+﻿using jsonperso;
+using PersonajeEspacio;
+using mensajesJuego;
 using PersonajeEspacio;
 
 
+
 string nombreArchivo = @"c:\Users\ROG BY NG\Desktop\TP09\tl1-proyectofinal2024-MaximoCN\json\personajes.json";
+//instancias 
 PersonajesJson personajesjson= new PersonajesJson();
+
 FabricaDePersonajes fabricaDePersonajes= new FabricaDePersonajes();
+
 List<Personajes> personajes = fabricaDePersonajes.crearAvengers();
+
+ mensajeJuego mensaje = new mensajeJuego();
+
+//llamo a el msj de bienvenida
+ mensaje.MostrarMensajeBienvenida();
+ mensaje.SeleccionarPersonaje();
+
 personajesjson.GuardarPersonajes(personajes,nombreArchivo);
  // Verificar si el archivo existe y tiene datos
             if (personajesjson.Existe(nombreArchivo))
             {
                 // Leer los personajes desde el archivo JSON
                 List<Personajes> personajesLeidos = personajesjson.LeerPersonajes(nombreArchivo);
-
-                // Mostrar los personajes leídos
-                foreach (var personaje in personajesLeidos)
-                {
-                    Console.WriteLine($"Nombre: {personaje.Datos.Nombre1}, Alias: {personaje.Datos.Apodo}, Edad: {personaje.Datos.Edad1}, Fecha de Nacimiento: {personaje.Datos.FechadeNacimiento}, Tipo: {personaje.Datos.Tipo1}");
-                    Console.WriteLine($"  Velocidad: {personaje.Caracteristicas.Velocidad}, Destreza: {personaje.Caracteristicas.Destreza}, Fuerza: {personaje.Caracteristicas.Fuerza}, Armadura: {personaje.Caracteristicas.Armadura}, Explocion: {personaje.Caracteristicas.Explocion}, Salud: {personaje.Caracteristicas.Salud}");
-                }
             }
             else
             {
-               personajes = fabricaDePersonajes.crearAvengers();
+                personajes = fabricaDePersonajes.crearAvengers();
                 personajesjson.GuardarPersonajes(personajes, nombreArchivo);
                 
             }
-
             //Mostrar  los datos guardados 
+           Console.WriteLine("LOS PERSONAJES SON:");
+           int contador = 1;
+           foreach (var personaje in personajes)
+           {
             
-             foreach (var personaje in personajes)
-            {
-                Console.WriteLine($"Nombre: {personaje.Datos.Nombre1}, Alias: {personaje.Datos.Apodo}, Edad: {personaje.Datos.Edad1}, Fecha de Nacimiento: {personaje.Datos.FechadeNacimiento}, Tipo: {personaje.Datos.Tipo1}");
-                Console.WriteLine($"  Velocidad: {personaje.Caracteristicas.Velocidad}, Destreza: {personaje.Caracteristicas.Destreza}, Fuerza: {personaje.Caracteristicas.Fuerza}, Armadura: {personaje.Caracteristicas.Armadura}, Explocion: {personaje.Caracteristicas.Explocion}, Salud: {personaje.Caracteristicas.Salud}");
-            }
-            
+            Console.WriteLine($"Personaje {contador}:");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine($"Nombre: {personaje.Datos.Nombre}");
+            Console.WriteLine($"Alias: {personaje.Datos.Apodo}");
+            Console.WriteLine($"Edad: {personaje.Datos.Edad}");
+            Console.WriteLine($"Fecha de Nacimiento: {personaje.Datos.FechadeNacimiento}");
+            Console.WriteLine($"Tipo: {personaje.Datos.Tipo}");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine($"Características:");
+            Console.WriteLine($"  - Velocidad: {personaje.Caracteristicas.Velocidad}");
+            Console.WriteLine($"  - Destreza: {personaje.Caracteristicas.Destreza}");
+            Console.WriteLine($"  - Fuerza: {personaje.Caracteristicas.Fuerza}");
+            Console.WriteLine($"  - Armadura: {personaje.Caracteristicas.Armadura}");
+            Console.WriteLine($"  - Explosión: {personaje.Caracteristicas.Explocion}");
+            Console.WriteLine($"  - Salud: {personaje.Caracteristicas.Salud}");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine();
+             contador++;
+}  
 
                 
             

@@ -1,4 +1,4 @@
-namespace jsonp;
+namespace jsonperso;
 using System.Text.Json;
 using PersonajeEspacio;      
 using System.IO;
@@ -12,10 +12,10 @@ public class PersonajesJson{
 
        public void GuardarPersonajes(List<Personajes> personaje,string NombreArchivo )
        {
-            Console.WriteLine("--Serializando--");
+           // Console.WriteLine("--Serializando--");
             string persoJson = JsonSerializer.Serialize(personaje);
-            Console.WriteLine("Archivo Serializado : " + persoJson);
-            Console.WriteLine("--Guardando--");
+           // Console.WriteLine("Archivo Serializado : " + persoJson);
+            //Console.WriteLine("--Guardando--");
             miHelperdeArchivos.GuardarArchivoTexto(NombreArchivo, persoJson);
 
        }
@@ -23,11 +23,11 @@ public class PersonajesJson{
       
       public List<Personajes> LeerPersonajes(string NombreArchivo)
        {
-           Console.WriteLine("--Abriendo--");
+          // Console.WriteLine("--Abriendo--");
             string jsonDocument = miHelperdeArchivos.AbrirArchivoTexto(NombreArchivo);
-            Console.WriteLine("--Deserializando--");
+            //Console.WriteLine("--Deserializando--");
             var listadopersonajes = JsonSerializer.Deserialize<List<Personajes>>(jsonDocument);
-            Console.WriteLine("--Mostrando datos recuperardos--");
+            //Console.WriteLine("--Mostrando datos recuperardos--");
             return listadopersonajes;
        }
 
@@ -91,5 +91,5 @@ public class  HistorialJson{
 
             return false;
         }
-        
+
 }
