@@ -42,15 +42,30 @@ public class Combate
 
         int efectividad = random.Next(1, 101);
 
-        int constante=100;    //cambio de constante para dar mas daño y ser una batalla mas dinamica
+        if (atacante.Caracteristicas.Explocion > defensor.Caracteristicas.Explocion)
+           {
+                ataque = (int)(ataque * 1.1);
+           }
+
+        int constante=20;    //cambio de constante para dar mas daño y ser una batalla mas dinamica
 
         int daño = ((ataque * efectividad)- defensa)/constante; 
 
-        if (daño < 0) daño = 0;
+        if (daño < 0)
+        {
+         daño = 0;
+        }
+            
 
         defensor.Caracteristicas.Salud = defensor.Caracteristicas.Salud-daño;
+         // Incrementa la explosión del defensor cada vez que recibe un ataque
+         defensor.Caracteristicas.Explocion = defensor.Caracteristicas.Explocion+1;
+            if (defensor.Caracteristicas.Explocion > 10)
+            {
+                defensor.Caracteristicas.Explocion = 10;
+            }
 
-        Console.WriteLine($"{atacante.Datos.Nombre} ataca a {defensor.Datos.Nombre} con una efectividad de {efectividad}%, causando {daño} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
+        Console.WriteLine($"{atacante.Datos.Nombre} Golpea a  {defensor.Datos.Nombre} su efectividad fue de {efectividad}%, logrando {daño} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
     }
 
     
@@ -74,6 +89,6 @@ public class Combate
             ganador.Caracteristicas.Armadura = 10;
         }
 
-        Console.WriteLine($"{ganador.Datos.Nombre} ha ganado el combate y mejora sus habilidades: +{incrementoSalud} Salud (máximo 100), +{incrementoArmadura} Armadura (máximo 10).");
+        Console.WriteLine($"{ganador.Datos.Nombre} logro salir victorioso esta vez y mejora sus habilidades: +{incrementoSalud} Salud, +{incrementoArmadura} Armadura.");
     }
     }

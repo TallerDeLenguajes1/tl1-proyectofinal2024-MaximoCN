@@ -16,6 +16,7 @@ List<Personajes> personajes = fabricaDePersonajes.crearAvengers();
 
 //llamo a el msj de bienvenida
  mensaje.MostrarMensajeBienvenida();
+ mensaje.ReglasdeJuegos();
  mensaje.SeleccionarPersonaje();
 
 personajesjson.GuardarPersonajes(personajes,nombreArchivo);
