@@ -112,28 +112,25 @@ public class Datos
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano","Hela","09/12/desc",5,"Hela"));
         return avengers;
    }
-   public Personajes BuscarPersonajes(int opcion)
+    public int SeleccionarPersonaje(int cantidadPersonajes, int Anterior = -1)
     {
-        int bandera = 0;
-        while (bandera == 0)
-        {
-            foreach (Personajes personaje in avengers  )
-            {
-                if (opcion >= 0 || opcion <= 9)
-                {
-                    bandera = 1;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("INGRESE UN VALOR VALIDO");
-                }
-            }
-        }
+        int seleccion;
+        bool esValido;
         
-        return avengers[opcion];
-    }
+        do
+        {
+            string elecc = Console.ReadLine();
+            esValido = int.TryParse(elecc, out seleccion) && seleccion >= 0 && seleccion < cantidadPersonajes && seleccion != Anterior;
 
+            if (!esValido)
+            {
+                Console.WriteLine("Entrada inválida. Por favor, ingresa un número entre 0 y {0} que no sea el mismo que el anterior.", cantidadPersonajes - 1);
+            }
+
+        } while (!esValido);
+
+        return seleccion;
+    }
  }
 
 
