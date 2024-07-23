@@ -26,7 +26,7 @@ personajesjson.GuardarPersonajes(personajes,nombreArchivo);
                // Leer los personajes desde el archivo JSON
               List<Personajes> personajesLeidos = personajesjson.LeerPersonajes(nombreArchivo);
           }
-            else
+            else //si no,tiene guardo los psj y muestro personajes del Json
             {
                 personajes = fabricaDePersonajes.crearAvengers();
                 personajesjson.GuardarPersonajes(personajes, nombreArchivo);
@@ -55,15 +55,21 @@ personajesjson.GuardarPersonajes(personajes,nombreArchivo);
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine();
              contador++;
+        }
 // Inicio de combate
 Console.WriteLine("Selecciona el primer personaje para el combate (0-9):");
-int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(10, -1);
-Personajes personajeSeleccionado = personajes[seleccion1];
-Console.WriteLine($"Seleccionaste a {personajeSeleccionado.Datos.Nombre}");
-personajes.RemoveAt(seleccion1); // No volver a seleccionar el mismo
 
+int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(10, -1);
+
+Personajes personajeSeleccionado = personajes[seleccion1];
+
+Console.WriteLine($"Seleccionaste a {personajeSeleccionado.Datos.Nombre}");
+
+//instancia Combate
 Combate combate = new Combate();
+
 HistorialJson historialJson = new HistorialJson();
+
 string nombreAHistorial = @"c:\Users\ROG BY NG\Desktop\TP09\tl1-proyectofinal2024-MaximoCN\json\historial.json";
 
 // Inicia el combate
@@ -76,8 +82,8 @@ if (personajeSeleccionado.Caracteristicas.Salud <= 0)
 else if (personajes.Count == 1)
 {
     Personajes ganador = personajes[0];
-    Console.WriteLine($"¡El ganador final es {ganador.Datos.Nombre}!");
-    Console.WriteLine("¡Felicidades, has ganado el Trono de Hierro!");
+    Console.WriteLine($"¡El ganador Supremo es {ganador.Datos.Nombre}!");
+    Console.WriteLine("¡HAZ GANADO EL TRONO DE HIERRO");
 
     string informacionFinal = $"{ganador.Datos.Nombre} es el ganador final.";
     historialJson.GuardarGanador(ganador, informacionFinal, nombreAHistorial);
@@ -86,6 +92,6 @@ else
 {
     Console.WriteLine("No quedan personajes para competir.");
 }
-   }
+   
                 
             

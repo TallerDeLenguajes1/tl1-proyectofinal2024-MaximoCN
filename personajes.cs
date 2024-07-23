@@ -124,7 +124,7 @@ public class Datos
 
             if (!esValido)
             {
-                Console.WriteLine("Entrada inválida. Por favor, ingresa un número entre 0 y {0} que no sea el mismo que el anterior.", cantidadPersonajes - 1);
+                Console.WriteLine("Entrada inválida. Por favor, ingresa un numero correcto", cantidadPersonajes - 1);
             }
 
         } while (!esValido);

@@ -65,6 +65,7 @@ using System;
             {
                 break;
             }
+            
             }
         }
 
@@ -76,10 +77,10 @@ using System;
 
             if (atacante.Caracteristicas.Explocion > defensor.Caracteristicas.Explocion)
             {
-                ataque = (int)(ataque * 1.1);
+                ataque = (int)(ataque * 1.1); //MEJORA EL ATAQUE DEL PERSONAJE QUE TENGA MAS EXPLOCION
             }
 
-            int constante = 20;
+            int constante = 20; //CAMBIO DE CONSTANTE PARA AUMENTAR DAÑO
             int daño = ((ataque * efectividad) - defensa) / constante;
 
             if (daño < 0)
