@@ -21,22 +21,22 @@ List<Personajes> personajes = fabricaDePersonajes.crearAvengers();
 
 personajesjson.GuardarPersonajes(personajes,nombreArchivo);
  // Verificar si el archivo existe y tiene datos
-            if (personajesjson.Existe(nombreArchivo))
-            {
-                // Leer los personajes desde el archivo JSON
-                List<Personajes> personajesLeidos = personajesjson.LeerPersonajes(nombreArchivo);
-            }
+      if (personajesjson.Existe(nombreArchivo))
+          {
+               // Leer los personajes desde el archivo JSON
+              List<Personajes> personajesLeidos = personajesjson.LeerPersonajes(nombreArchivo);
+          }
             else
             {
                 personajes = fabricaDePersonajes.crearAvengers();
                 personajesjson.GuardarPersonajes(personajes, nombreArchivo);
                 
             }
-            //Mostrar  los datos guardados 
-           Console.WriteLine("LOS PERSONAJES SON:");
-           int contador = 1;
-           foreach (var personaje in personajes)
-           {
+   //Mostrar  los datos guardados 
+  Console.WriteLine("LOS PERSONAJES SON:");
+  int contador = 1;
+  foreach (var personaje in personajes)
+        {
             Console.WriteLine($"Personaje {contador}:");
             Console.WriteLine("----------------------------------------");
             Console.WriteLine($"Nombre: {personaje.Datos.Nombre}");
@@ -55,19 +55,37 @@ personajesjson.GuardarPersonajes(personajes,nombreArchivo);
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine();
              contador++;
-}  
-      Console.WriteLine("Selecciona el primer personaje para el combate (0-9):");
-        int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(10,-1);
+// Inicio de combate
+Console.WriteLine("Selecciona el primer personaje para el combate (0-9):");
+int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(10, -1);
+Personajes personajeSeleccionado = personajes[seleccion1];
+Console.WriteLine($"Seleccionaste a {personajeSeleccionado.Datos.Nombre}");
+personajes.RemoveAt(seleccion1); // No volver a seleccionar el mismo
 
-        Console.WriteLine("Selecciona el segundo personaje para el combate (0-9):");
-        int seleccion2 = fabricaDePersonajes.SeleccionarPersonaje(10,seleccion1);
+Combate combate = new Combate();
+HistorialJson historialJson = new HistorialJson();
+string nombreAHistorial = @"c:\Users\ROG BY NG\Desktop\TP09\tl1-proyectofinal2024-MaximoCN\json\historial.json";
 
-        Personajes personaje1 = personajes[seleccion1];
-        Personajes personaje2 = personajes[seleccion2];
+// Inicia el combate
+combate.IniciarCombate(personajeSeleccionado, personajes);
 
-         Combate combate = new Combate();
-        combate.IniciarCombate(personaje1, personaje2);
+if (personajeSeleccionado.Caracteristicas.Salud <= 0)
+{
+    Console.WriteLine("Lo siento, el personaje que elegiste murió en batalla. Perdiste.");
+}
+else if (personajes.Count == 1)
+{
+    Personajes ganador = personajes[0];
+    Console.WriteLine($"¡El ganador final es {ganador.Datos.Nombre}!");
+    Console.WriteLine("¡Felicidades, has ganado el Trono de Hierro!");
 
-
+    string informacionFinal = $"{ganador.Datos.Nombre} es el ganador final.";
+    historialJson.GuardarGanador(ganador, informacionFinal, nombreAHistorial);
+}
+else
+{
+    Console.WriteLine("No quedan personajes para competir.");
+}
+   }
                 
             

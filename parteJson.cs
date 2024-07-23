@@ -47,21 +47,17 @@ public class PersonajesJson{
 }
 public class  HistorialJson{
     private HelperDeJson miHelperdeArchivos = new HelperDeJson();
-
-   public void GuardarGanador (Personajes ganador, string informacion, string nombreArchivo)
+        public void GuardarGanador(Personajes ganador, string informacion, string nombreArchivo)
         {
-            List<Partida> historial = new List<Partida>();
-
-            if (Existe(nombreArchivo))
+            var historial = new
             {
-                historial = LeerGanadores(nombreArchivo);
-            }
+                Ganador = ganador.Datos.Nombre,
+                Información = informacion,
+                Fecha = DateTime.Now
+            };
 
-            historial.Add(new Partida { Ganador = ganador, Informacion = informacion });
-
-            string historialJson = JsonSerializer.Serialize(historial);
-            
-            miHelperdeArchivos.GuardarArchivoTexto(nombreArchivo, historialJson);
+            string jsonString = JsonSerializer.Serialize(historial);
+            File.WriteAllText(nombreArchivo, jsonString);
         }
       public class Partida
           {
