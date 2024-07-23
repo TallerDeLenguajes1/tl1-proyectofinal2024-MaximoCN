@@ -45,47 +45,63 @@ public class PersonajesJson{
 
    
 }
-public class  HistorialJson{
+public class HistorialJson
+{
     private HelperDeJson miHelperdeArchivos = new HelperDeJson();
-        public void GuardarGanador(Personajes ganador, string informacion, string nombreArchivo)
-        {
-            var historial = new
-            {
-                Ganador = ganador.Datos.Nombre,
-                Información = informacion,
-                Fecha = DateTime.Now
-            };
 
-            string jsonString = JsonSerializer.Serialize(historial);
-            File.WriteAllText(nombreArchivo, jsonString);
+    public void GuardarGanador(Personajes ganador, string informacion, string nombreArchivo)
+{
+    List<Partida> historial = LeerGanadores(nombreArchivo);
+
+    var nuevaPartida = new Partida
+    {
+        Ganador = ganador,
+        Informacion = informacion
+    };
+
+    historial.Add(nuevaPartida);
+
+    string jsonString = JsonSerializer.Serialize(historial, new JsonSerializerOptions { WriteIndented = true });
+    miHelperdeArchivos.GuardarArchivoTexto(nombreArchivo, jsonString);
+}
+
+    public List<Partida> LeerGanadores(string nombreArchivo)
+    {
+        if (!Existe(nombreArchivo))
+        {
+            return new List<Partida>();
         }
-      public class Partida
-          {
+
+        string jsonDocument = miHelperdeArchivos.AbrirArchivoTexto(nombreArchivo);
+
+        try
+        {
+            // Intenta deserializar el JSON en una lista de Partida
+            var historial = JsonSerializer.Deserialize<List<Partida>>(jsonDocument);
+            return historial ?? new List<Partida>();
+        }
+        catch (JsonException ex)
+        {
+            // Manejar errores de deserialización y devolver una lista vacía
+            Console.WriteLine($"Error al deserializar el archivo JSON: {ex.Message}");
+            return new List<Partida>();
+        }
+    }
+
+    public bool Existe(string nombreArchivo)
+    {
+        if (File.Exists(nombreArchivo))
+        {
+            string ContenidoArchivo = File.ReadAllText(nombreArchivo);
+            return !string.IsNullOrEmpty(ContenidoArchivo);
+        }
+
+        return false;
+    }
+
+    public class Partida
+    {
         public Personajes Ganador { get; set; }
         public string Informacion { get; set; }
-    
-         }
-        public List<Partida> LeerGanadores(string nombreArchivo)
-        {
-            if (!Existe(nombreArchivo))
-            {
-                return new List<Partida>();
-            }
-
-            string jsonDocument = miHelperdeArchivos.AbrirArchivoTexto(nombreArchivo);
-            var historial = JsonSerializer.Deserialize<List<Partida>>(jsonDocument);
-
-            return historial;
-        }
-        public bool Existe(string nombreArchivo)
-        {
-            if (File.Exists(nombreArchivo))
-            {
-                string ContenidoArchivo = File.ReadAllText(nombreArchivo);
-                return !string.IsNullOrEmpty(ContenidoArchivo);
-            }
-
-            return false;
-        }
-
+    }
 }

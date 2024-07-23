@@ -73,25 +73,16 @@ HistorialJson historialJson = new HistorialJson();
 string nombreAHistorial = @"c:\Users\ROG BY NG\Desktop\TP09\tl1-proyectofinal2024-MaximoCN\json\historial.json";
 
 // Inicia el combate
-combate.IniciarCombate(personajeSeleccionado, personajes);
+Personajes ganador = combate.IniciarCombate(personajeSeleccionado, personajes);
 
-if (personajeSeleccionado.Caracteristicas.Salud <= 0)
+if (ganador != null)
 {
-    Console.WriteLine("Lo siento, el personaje que elegiste murió en batalla. Perdiste.");
-}
-else if (personajes.Count == 1)
-{
-    Personajes ganador = personajes[0];
-    Console.WriteLine($"¡El ganador Supremo es {ganador.Datos.Nombre}!");
-    Console.WriteLine("¡HAZ GANADO EL TRONO DE HIERRO");
-
     string informacionFinal = $"{ganador.Datos.Nombre} es el ganador final.";
     historialJson.GuardarGanador(ganador, informacionFinal, nombreAHistorial);
 }
 else
 {
-    Console.WriteLine("No quedan personajes para competir.");
+    Console.WriteLine("No hay un ganador claro en el combate.");
 }
-   
-                
+
             

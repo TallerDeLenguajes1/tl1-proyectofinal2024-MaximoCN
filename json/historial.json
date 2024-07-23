@@ -1,0 +1,42 @@
+[
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 57,
+        "Fuerza": 8,
+        "Armadura": 7,
+        "Destreza": 9,
+        "Velocidad": 6,
+        "Explocion": 3
+      },
+      "Datos": {
+        "Apodo": "Loki",
+        "Edad": 300,
+        "FechadeNacimiento": "01/01/desc",
+        "Nombre": "Loki",
+        "Tipo": "Villano"
+      }
+    },
+    "Informacion": "Loki es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 78,
+        "Fuerza": 7,
+        "Armadura": 3,
+        "Destreza": 10,
+        "Velocidad": 5,
+        "Explocion": 3
+      },
+      "Datos": {
+        "Apodo": "Bruce Banner",
+        "Edad": 43,
+        "FechadeNacimiento": "30/12/1979",
+        "Nombre": "Hulk",
+        "Tipo": "Heroe"
+      }
+    },
+    "Informacion": "Hulk es el ganador final."
+  }
+]
