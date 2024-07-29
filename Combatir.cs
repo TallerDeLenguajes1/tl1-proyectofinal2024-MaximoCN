@@ -84,6 +84,10 @@ using System;
         {
             daño = 0;
         }
+        if (daño>100)
+        {
+            daño=99;
+        }
 
         if (atacante.Caracteristicas.Explocion > defensor.Caracteristicas.Explocion)
         {
@@ -91,6 +95,10 @@ using System;
         }
 
         defensor.Caracteristicas.Salud -= daño;
+        if (defensor.Caracteristicas.Salud < 0)
+        {
+            defensor.Caracteristicas.Salud = 0; // Asegura que la salud no sea negativa
+        }
         if (defensor.Caracteristicas.Explocion + 1 > 10)
         {
             defensor.Caracteristicas.Explocion = 10;
