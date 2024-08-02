@@ -28,6 +28,7 @@ using System.Threading;
             
             if (ganador != null)        //Mejoras las habilidades del ganador
                 {
+                   
                     MejorarHabilidades(ganador);
                 }
 
@@ -62,6 +63,7 @@ using System.Threading;
         while (personaje1.Caracteristicas.Salud > 0 && personaje2.Caracteristicas.Salud > 0)
         {
             Atacar(personaje1, personaje2);
+            Thread.Sleep(3000);
 
             if (personaje2.Caracteristicas.Salud <= 0)
             {
@@ -69,10 +71,11 @@ using System.Threading;
             }
 
             Atacar(personaje2, personaje1);
-
+            Thread.Sleep(3000);
             if (personaje1.Caracteristicas.Salud <= 0)
             {
                 return personaje2; //Gano pj2
+               
             }
         }
        return null;
@@ -89,7 +92,7 @@ using System.Threading;
             ataque = (int)(ataque * 1.1); //MEJORA EL ATAQUE DEL PERSONAJE QUE TENGA MAS EXPLOCION
         }
 
-        int constante = 20; //CAMBIO DE CONSTANTE PARA AUMENTAR DAÑO
+        int constante = 200; //CAMBIO DE CONSTANTE PARA AUMENTAR DAÑO
         int daño = ((ataque * efectividad) - defensa) / constante;
 
         if (daño < 0)

@@ -66,9 +66,9 @@ personajesjson.GuardarPersonajes(personajes,nombreArchivo);
 
         }
         // Inicio de combate
- Console.WriteLine("Selecciona el primer personaje para el combate (0-9):");
+ Console.WriteLine("Selecciona el primer personaje para el combate (1-10):");
 
- int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(10, -1);
+ int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(1, 10);
 
 Personajes personajeSeleccionado = personajes[seleccion1];
 

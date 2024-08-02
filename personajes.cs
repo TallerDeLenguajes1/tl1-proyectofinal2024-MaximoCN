@@ -93,7 +93,7 @@ public class Datos
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"heroe", "Peter parker","10/08/2001",23,"Spiderman"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Héroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Capitan America", "04/07/1918", 106, "Cap"));
 
@@ -120,7 +120,7 @@ public class Datos
         do
         {
             string elecc = Console.ReadLine();
-            esValido = int.TryParse(elecc, out seleccion) && seleccion >= 0 && seleccion < cantidadPersonajes && seleccion != Anterior;
+            esValido = int.TryParse(elecc, out seleccion) && seleccion >= 1 && seleccion <= cantidadPersonajes && (seleccion - 1) != Anterior;
 
             if (!esValido)
             {
@@ -129,7 +129,7 @@ public class Datos
 
         } while (!esValido);
 
-        return seleccion;
+         return seleccion - 1;
     }
  }
 
