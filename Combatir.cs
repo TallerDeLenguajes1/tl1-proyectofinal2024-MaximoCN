@@ -1,13 +1,14 @@
 namespace CombatiendoEspacio;
 using PersonajeEspacio;
 using System;
+using System.Threading;
  public class Combate
 {
      private Random random = new Random();
 
    public Personajes IniciarCombate(Personajes personajeSeleccionado, List<Personajes> personajes)
     {
-        if (personajes == null || personajes.Count < 2)
+        if (personajes == null || personajes.Count < 2)//Control solo por las dudas
         {
             Console.WriteLine("No hay suficientes personajes para iniciar el combate.");
             return null;
@@ -20,7 +21,15 @@ using System;
             Personajes oponente = SeleccionarOponenteAleatorio(personajes, personajeActual);
 
             Console.WriteLine($"{personajeActual.Datos.Nombre} vs {oponente.Datos.Nombre}");
-            CombateEntrePersonajes(personajeActual, oponente);
+
+            Thread.Sleep(3000);
+
+            Personajes ganador= CombateEntrePersonajes(personajeActual, oponente);
+            
+            if (ganador != null)        //Mejoras las habilidades del ganador
+                {
+                    MejorarHabilidades(ganador);
+                }
 
             if (personajeActual.Caracteristicas.Salud <= 0)
             {
@@ -33,6 +42,8 @@ using System;
                 Console.WriteLine($"{oponente.Datos.Nombre} ha sido derrotado. {personajeActual.Datos.Nombre} sigue luchando.");
                 personajes.Remove(oponente);
             }
+             Thread.Sleep(3000);
+
         }
 
         if (personajes.Count == 1)
@@ -46,7 +57,7 @@ using System;
         return null;
     }
 
-    private void CombateEntrePersonajes(Personajes personaje1, Personajes personaje2)
+    private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes personaje2)
     {
         while (personaje1.Caracteristicas.Salud > 0 && personaje2.Caracteristicas.Salud > 0)
         {
@@ -54,16 +65,17 @@ using System;
 
             if (personaje2.Caracteristicas.Salud <= 0)
             {
-                break;
+                return personaje1; //Gano pj1
             }
 
             Atacar(personaje2, personaje1);
 
             if (personaje1.Caracteristicas.Salud <= 0)
             {
-                break;
+                return personaje2; //Gano pj2
             }
         }
+       return null;
     }
 
     private void Atacar(Personajes atacante, Personajes defensor)
@@ -72,7 +84,7 @@ using System;
         int defensa = defensor.Caracteristicas.Armadura * defensor.Caracteristicas.Velocidad;
         int efectividad = random.Next(1, 101);
 
-        if (atacante.Caracteristicas.Explocion > defensor.Caracteristicas.Explocion)
+        if (atacante.Caracteristicas.Explosion > defensor.Caracteristicas.Explosion)
         {
             ataque = (int)(ataque * 1.1); //MEJORA EL ATAQUE DEL PERSONAJE QUE TENGA MAS EXPLOCION
         }
@@ -84,28 +96,29 @@ using System;
         {
             daño = 0;
         }
-        if (daño>100)
-        {
-            daño=99;
-        }
 
-        if (atacante.Caracteristicas.Explocion > defensor.Caracteristicas.Explocion)
+        if (atacante.Caracteristicas.Explosion > defensor.Caracteristicas.Explosion)
         {
             daño += random.Next(1, 10); // Daño adicional aleatorio POR TENER MAYOR EXPLOCION
         }
 
+        if (daño>100)
+        {
+            daño=99;
+        }
         defensor.Caracteristicas.Salud -= daño;
+
         if (defensor.Caracteristicas.Salud < 0)
         {
             defensor.Caracteristicas.Salud = 0; // Asegura que la salud no sea negativa
         }
-        if (defensor.Caracteristicas.Explocion + 1 > 10)
+        if (defensor.Caracteristicas.Explosion + 1 > 10)
         {
-            defensor.Caracteristicas.Explocion = 10;
+            defensor.Caracteristicas.Explosion = 10;
         }
         else
         {
-            defensor.Caracteristicas.Explocion += 1;
+            defensor.Caracteristicas.Explosion += 1;
         }
 
         Console.WriteLine($"{atacante.Datos.Nombre} golpea a {defensor.Datos.Nombre} con una efectividad de {efectividad}%, causando {daño} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
@@ -117,7 +130,7 @@ using System;
 
         if (personajes.Count <= 1)
         {
-            throw new InvalidOperationException("No hay suficientes personajes para seleccionar un oponente.");
+            Console.WriteLine("No hay suficientes personajes para seleccionar un oponente.");
         }
 
         int indiceOponente;
@@ -134,7 +147,7 @@ using System;
         int saludMejora = random.Next(0, 41);
         int destrezaMejora = random.Next(1, 4);
 
-        personaje.Caracteristicas.Salud = Math.Min(personaje.Caracteristicas.Salud + saludMejora, 100);
+        personaje.Caracteristicas.Salud = Math.Min(personaje.Caracteristicas.Salud + saludMejora, 100); 
         personaje.Caracteristicas.Destreza = Math.Min(personaje.Caracteristicas.Destreza + destrezaMejora, 10);
 
         Console.WriteLine($"{personaje.Datos.Nombre} ha mejorado sus habilidades:");

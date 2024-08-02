@@ -11,12 +11,12 @@ public class Personajes
     private Datos datos;
     public Datos Datos { get => datos; set => datos = value; }
 
-    public Personajes(int velocidad,int destreza,int fuerza,int armadura,int explocion,int salud,string tipo,string nombre, string fechadeNacimiento,int edad, string apodo){
+    public Personajes(int velocidad,int destreza,int fuerza,int armadura,int explosion,int salud,string tipo,string nombre, string fechadeNacimiento,int edad, string apodo){
     
-      Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud,explocion);
+      Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud,explosion);
       Datos= new Datos(tipo,nombre,fechadeNacimiento,edad,apodo);
     }
-    public Personajes()
+    public Personajes()   //Constructor vacio para deserializar 
     {
     }
 
@@ -29,18 +29,18 @@ public class Caracteristicas
       [JsonPropertyName("Fuerza")]  private int fuerza;     //1 a 10
       [JsonPropertyName("Armadura")]  private int armadura;   //1 a 10
       [JsonPropertyName("Salud")]  private int salud; //100
-      [JsonPropertyName("Explocion")]  private int explocion; //1 a 10
+      [JsonPropertyName("Explosion")]  private int explosion; //1 a 10
       [JsonPropertyName("Velocidad")]  private int velocidad;   // 1 a 10
 
        
-    public Caracteristicas(int velocidad, int destreza, int fuerza, int armadura,int explocion, int salud)
+    public Caracteristicas(int velocidad, int destreza, int fuerza, int armadura,int explosion, int salud)
     {
         Velocidad = velocidad;
         Destreza = destreza;
         Fuerza = fuerza;
         Armadura = armadura;
         Salud = salud;
-        Explocion= explocion;
+        Explosion= explosion;
         
     }
     public int Salud { get => salud; set => salud = value; }
@@ -48,7 +48,7 @@ public class Caracteristicas
     public int Armadura { get => armadura; set => armadura = value; }
     public int Destreza { get => destreza; set => destreza = value; }
     public int Velocidad { get => velocidad; set => velocidad = value; }
-    public int Explocion { get => explocion; set => explocion = value; }
+    public int Explosion { get => explosion; set => explosion = value; }
 }
   
 
@@ -95,7 +95,7 @@ public class Datos
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Héroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Héroe", "Capitan America", "04/07/1918", 106, "Cap"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Capitan America", "04/07/1918", 106, "Cap"));
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Thor", "12/04/desc", 300, "Dios del Trueno"));
 

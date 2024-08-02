@@ -2,12 +2,132 @@
   {
     "Ganador": {
       "Caracteristicas": {
-        "Salud": 57,
-        "Fuerza": 8,
-        "Armadura": 7,
+        "Salud": 34,
+        "Fuerza": 6,
+        "Armadura": 5,
+        "Destreza": 10,
+        "Velocidad": 2,
+        "Explosion": 10
+      },
+      "Datos": {
+        "Apodo": "Bruce Banner",
+        "Edad": 43,
+        "FechadeNacimiento": "30/12/1979",
+        "Nombre": "Hulk",
+        "Tipo": "Heroe"
+      }
+    },
+    "Informacion": "Hulk es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 56,
+        "Fuerza": 9,
+        "Armadura": 6,
+        "Destreza": 10,
+        "Velocidad": 8,
+        "Explosion": 10
+      },
+      "Datos": {
+        "Apodo": "Hela",
+        "Edad": 5,
+        "FechadeNacimiento": "09/12/desc",
+        "Nombre": "Hela",
+        "Tipo": "Villano"
+      }
+    },
+    "Informacion": "Hela es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 100,
+        "Fuerza": 9,
+        "Armadura": 3,
         "Destreza": 9,
-        "Velocidad": 6,
-        "Explocion": 3
+        "Velocidad": 3,
+        "Explosion": 4
+      },
+      "Datos": {
+        "Apodo": "Ultron",
+        "Edad": 5,
+        "FechadeNacimiento": "01/01/desc",
+        "Nombre": "Ultron",
+        "Tipo": "Villano"
+      }
+    },
+    "Informacion": "Ultron es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 62,
+        "Fuerza": 8,
+        "Armadura": 5,
+        "Destreza": 8,
+        "Velocidad": 1,
+        "Explosion": 10
+      },
+      "Datos": {
+        "Apodo": "Hela",
+        "Edad": 5,
+        "FechadeNacimiento": "09/12/desc",
+        "Nombre": "Hela",
+        "Tipo": "Villano"
+      }
+    },
+    "Informacion": "Hela es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 61,
+        "Fuerza": 3,
+        "Armadura": 5,
+        "Destreza": 10,
+        "Velocidad": 8,
+        "Explosion": 6
+      },
+      "Datos": {
+        "Apodo": "ojo de halcon",
+        "Edad": 45,
+        "FechadeNacimiento": "09/02/1969",
+        "Nombre": "Hawkeye",
+        "Tipo": "heroe"
+      }
+    },
+    "Informacion": "Hawkeye es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 78,
+        "Fuerza": 9,
+        "Armadura": 4,
+        "Destreza": 10,
+        "Velocidad": 8,
+        "Explosion": 8
+      },
+      "Datos": {
+        "Apodo": "Thanos",
+        "Edad": 300,
+        "FechadeNacimiento": "01/01/desc",
+        "Nombre": "Thanos",
+        "Tipo": "Villano"
+      }
+    },
+    "Informacion": "Thanos es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 100,
+        "Fuerza": 9,
+        "Armadura": 9,
+        "Destreza": 9,
+        "Velocidad": 3,
+        "Explosion": 4
       },
       "Datos": {
         "Apodo": "Loki",
@@ -22,21 +142,81 @@
   {
     "Ganador": {
       "Caracteristicas": {
-        "Salud": 78,
-        "Fuerza": 7,
-        "Armadura": 3,
-        "Destreza": 10,
-        "Velocidad": 5,
-        "Explocion": 3
+        "Salud": 72,
+        "Fuerza": 3,
+        "Armadura": 1,
+        "Destreza": 9,
+        "Velocidad": 2,
+        "Explosion": 10
       },
       "Datos": {
-        "Apodo": "Bruce Banner",
-        "Edad": 43,
-        "FechadeNacimiento": "30/12/1979",
-        "Nombre": "Hulk",
-        "Tipo": "Heroe"
+        "Apodo": "ojo de halcon",
+        "Edad": 45,
+        "FechadeNacimiento": "09/02/1969",
+        "Nombre": "Hawkeye",
+        "Tipo": "heroe"
       }
     },
-    "Informacion": "Hulk es el ganador final."
+    "Informacion": "Hawkeye es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 67,
+        "Fuerza": 3,
+        "Armadura": 8,
+        "Destreza": 10,
+        "Velocidad": 9,
+        "Explosion": 7
+      },
+      "Datos": {
+        "Apodo": "Hela",
+        "Edad": 5,
+        "FechadeNacimiento": "09/12/desc",
+        "Nombre": "Hela",
+        "Tipo": "Villano"
+      }
+    },
+    "Informacion": "Hela es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 62,
+        "Fuerza": 9,
+        "Armadura": 4,
+        "Destreza": 10,
+        "Velocidad": 8,
+        "Explosion": 5
+      },
+      "Datos": {
+        "Apodo": "ojo de halcon",
+        "Edad": 45,
+        "FechadeNacimiento": "09/02/1969",
+        "Nombre": "Hawkeye",
+        "Tipo": "heroe"
+      }
+    },
+    "Informacion": "Hawkeye es el ganador final."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 100,
+        "Fuerza": 8,
+        "Armadura": 3,
+        "Destreza": 10,
+        "Velocidad": 3,
+        "Explosion": 10
+      },
+      "Datos": {
+        "Apodo": "Tony Stark",
+        "Edad": 54,
+        "FechadeNacimiento": "03/05/1970",
+        "Nombre": "Iron Man",
+        "Tipo": "H\u00E9roe"
+      }
+    },
+    "Informacion": "Iron Man es el ganador final."
   }
 ]
