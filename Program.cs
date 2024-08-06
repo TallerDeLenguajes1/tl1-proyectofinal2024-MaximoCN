@@ -1,11 +1,8 @@
 ﻿using jsonperso;
 using PersonajeEspacio;
 using mensajesJuego;
-using PersonajeEspacio;
 using CombatiendoEspacio;
 using ApiC;
-using System.ComponentModel.Design.Serialization;
-
 
 string nombreArchivo = @"json\personajes.json";
 
@@ -27,7 +24,7 @@ List<Personajes> personajes = fabricaDePersonajes.crearAvengers();
  mensaje.SeleccionarPersonaje();
 personajesjson.GuardarPersonajes(personajes,nombreArchivo);
 Root clima= await ClimaApi.ObtenerClima();
-Console.WriteLine($"clima{clima.current.condition.text}");
+
 
   while (true)
   {
@@ -90,7 +87,7 @@ HistorialJson historialJson = new HistorialJson();
 string nombreAHistorial = @"json\historial.json";
 
 // Inicia el combate
-Personajes ganador = combate.IniciarCombate(personajeSeleccionado, personajes);
+Personajes ganador = await combate.IniciarCombate(personajeSeleccionado, personajes);
 
 if (ganador != null)
 {
@@ -102,7 +99,6 @@ else
     Console.WriteLine("No hay un ganador claro en el combate.");
 
 } 
-
 
 
 // Preguntar si se quiere volver a jugar

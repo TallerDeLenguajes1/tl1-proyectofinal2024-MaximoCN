@@ -2,7 +2,7 @@
 using System;
 using System.Text.Json.Serialization;
 namespace PersonajeEspacio; 
-using Newtonsoft.Json;
+
 
 
 public class Personajes
@@ -91,7 +91,7 @@ public class Datos
 
        List<Personajes> avengers = new List<Personajes>();
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"heroe", "Peter parker","10/08/2001",23,"Spiderman"));
+        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Peter parker","10/08/2001",23,"Spiderman"));
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
 
@@ -107,7 +107,7 @@ public class Datos
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano", "Ultron", "01/01/desc", 5, "Ultron"));
 
-        avengers.Add(new Personajes( CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"heroe","Hawkeye","09/02/1969",45,"ojo de halcon"));
+        avengers.Add(new Personajes( CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe","Hawkeye","09/02/1969",45,"ojo de halcon"));
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano","Hela","09/12/desc",5,"Hela"));
         return avengers;

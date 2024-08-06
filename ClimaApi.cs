@@ -1,5 +1,4 @@
 namespace ApiC; 
-using System.Text.Json.Serialization;
 using System.Text.Json;
     public class Root
     {
@@ -38,5 +37,22 @@ public static async Task<Root> ObtenerClima()
         return null;
     }
 }
+     public static string ObtenerEstadoClima(Root clima) // Obtener el estado
+    {
+        string descripcionClima = clima?.current?.condition?.text.ToLower() ?? "desconocido";
+        if (descripcionClima.Contains("sunny") || descripcionClima.Contains("clear"))
+        {
+            return "bueno";
+        }
+        else if (descripcionClima.Contains("cloudy") || descripcionClima.Contains("rain") || descripcionClima.Contains("thunderstorm"))
+        {
+            return "malo";
+        }
+        else
+        {
+            return "desconocido"; // Por si hay descripciones no contempladas
+        }
+    }
 }
+
 

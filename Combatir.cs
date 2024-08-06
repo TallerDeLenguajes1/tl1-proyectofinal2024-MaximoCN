@@ -2,17 +2,23 @@ namespace CombatiendoEspacio;
 using PersonajeEspacio;
 using System;
 using System.Threading;
+using ApiC;
+using System.Threading.Tasks;
  public class Combate
 {
      private Random random = new Random();
 
-   public Personajes IniciarCombate(Personajes personajeSeleccionado, List<Personajes> personajes)
+   public async Task<Personajes> IniciarCombate(Personajes personajeSeleccionado, List<Personajes> personajes)
     {
         if (personajes == null || personajes.Count < 2)//Control solo por las dudas
         {
             Console.WriteLine("No hay suficientes personajes para iniciar el combate.");
             return null;
         }
+
+        Root clima = await ClimaApi.ObtenerClima();
+        string estadoClima = ClimaApi.ObtenerEstadoClima(clima);
+        AjustarArmaduraPorClima(personajes, estadoClima);  //SEGUN EL CLIMA AJUSTA LA ARMADURA 2 PTS MAS
 
         Personajes personajeActual = personajeSeleccionado;
 
@@ -58,7 +64,51 @@ using System.Threading;
         return null;
     }
 
-    private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes personaje2)
+    public void AjustarArmaduraPorClima(List<Personajes> personajes, string estadoClima)
+{
+    if (estadoClima == "desconocido")
+    {
+        // Si el clima es desconocido, no se realiza ningún ajuste
+        return;
+    }
+
+    foreach (var personaje in personajes)
+    {
+        if (personaje.Datos.Tipo == "Heroe") 
+        {
+            // Si el clima está bueno, aumenta la armadura de los héroes, sin pasar de 10 puntos
+            if (estadoClima == "bueno")
+            {
+                // Verificar si la armadura actual es menor de 10 
+                if (personaje.Caracteristicas.Armadura < 10)
+                {
+                    personaje.Caracteristicas.Armadura += 2;
+                    // Asegurarse de que la armadura no exceda 10
+                    if (personaje.Caracteristicas.Armadura > 10)
+                    {
+                        personaje.Caracteristicas.Armadura = 10;
+                    }
+                }
+            }
+        }
+        else if (personaje.Datos.Tipo == "villano")
+        {
+            // Si el clima está malo, aumenta la armadura de los villanos
+            if (estadoClima == "malo")
+            {
+                personaje.Caracteristicas.Armadura += 2;
+            }
+
+            if (personaje.Caracteristicas.Armadura > 10)
+               {
+                    personaje.Caracteristicas.Armadura = 10;
+                }
+
+        }
+    }
+    }
+
+private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes personaje2)
     {
         while (personaje1.Caracteristicas.Salud > 0 && personaje2.Caracteristicas.Salud > 0)
         {
@@ -115,7 +165,7 @@ using System.Threading;
         {
             defensor.Caracteristicas.Salud = 0; // Asegura que la salud no sea negativa
         }
-        if (defensor.Caracteristicas.Explosion + 1 > 10)
+        if (defensor.Caracteristicas.Explosion + 1 > 10)  
         {
             defensor.Caracteristicas.Explosion = 10;
         }
@@ -127,7 +177,7 @@ using System.Threading;
         Console.WriteLine($"{atacante.Datos.Nombre} golpea a {defensor.Datos.Nombre} con una efectividad de {efectividad}%, causando {danio} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
     }
 
-    private Personajes SeleccionarOponenteAleatorio(List<Personajes> personajes, Personajes actual)
+private Personajes SeleccionarOponenteAleatorio(List<Personajes> personajes, Personajes actual)
     {
         int indiceActual = personajes.IndexOf(actual);
 
@@ -158,4 +208,3 @@ using System.Threading;
         Console.WriteLine($"  - Destreza: +{destrezaMejora} (total: {personaje.Caracteristicas.Destreza})");
     }
 }
-    
