@@ -92,24 +92,24 @@ using System.Threading;
             ataque = (int)(ataque * 1.1); //MEJORA EL ATAQUE DEL PERSONAJE QUE TENGA MAS EXPLOCION
         }
 
-        int constante = 200; //CAMBIO DE CONSTANTE PARA AUMENTAR DAÑO
-        int daño = ((ataque * efectividad) - defensa) / constante;
+        int constante = 100; //CAMBIO DE CONSTANTE PARA AUMENTAR DAÑO
+        int danio = ((ataque * efectividad) - defensa) / constante;
 
-        if (daño < 0)
+        if (danio < 0)
         {
-            daño = 0;
+            danio = 0;
         }
 
         if (atacante.Caracteristicas.Explosion > defensor.Caracteristicas.Explosion)
         {
-            daño += random.Next(1, 10); // Daño adicional aleatorio POR TENER MAYOR EXPLOCION
+            danio += random.Next(1, 10); // Daño adicional aleatorio POR TENER MAYOR EXPLOCION
         }
 
-        if (daño>100)
+        if (danio>100)
         {
-            daño=99;
+            danio=99;
         }
-        defensor.Caracteristicas.Salud -= daño;
+        defensor.Caracteristicas.Salud -= danio;
 
         if (defensor.Caracteristicas.Salud < 0)
         {
@@ -124,7 +124,7 @@ using System.Threading;
             defensor.Caracteristicas.Explosion += 1;
         }
 
-        Console.WriteLine($"{atacante.Datos.Nombre} golpea a {defensor.Datos.Nombre} con una efectividad de {efectividad}%, causando {daño} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
+        Console.WriteLine($"{atacante.Datos.Nombre} golpea a {defensor.Datos.Nombre} con una efectividad de {efectividad}%, causando {danio} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
     }
 
     private Personajes SeleccionarOponenteAleatorio(List<Personajes> personajes, Personajes actual)

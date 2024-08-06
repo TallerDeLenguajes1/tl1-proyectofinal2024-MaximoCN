@@ -76,7 +76,7 @@ public class HistorialJson
 
         try
         {
-            // Intenta deserializar el JSON en una lista de Partida
+            // Intenta deserializar el json en una lista de Partida
             var historial = JsonSerializer.Deserialize<List<Partida>>(jsonDocument);
             return historial ?? new List<Partida>();
         }
@@ -105,3 +105,5 @@ public class HistorialJson
         public string Informacion { get; set; }
     }
 }
+
+

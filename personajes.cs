@@ -120,7 +120,14 @@ public class Datos
         do
         {
             string elecc = Console.ReadLine();
-            esValido = int.TryParse(elecc, out seleccion) && seleccion >= 1 && seleccion <= cantidadPersonajes && (seleccion - 1) != Anterior;
+            esValido = int.TryParse(elecc, out seleccion);
+
+           // Comprueba que el número esté dentro del rango permitido
+           esValido = esValido && seleccion >= 1 && seleccion <= cantidadPersonajes;
+
+          // Verifica que el número seleccionado no sea el mismo que el anterior
+          esValido = esValido && (seleccion - 1) != Anterior;
+
 
             if (!esValido)
             {

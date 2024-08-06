@@ -3,6 +3,10 @@ using PersonajeEspacio;
 using mensajesJuego;
 using PersonajeEspacio;
 using CombatiendoEspacio;
+using ApiC;
+using System.ComponentModel.Design.Serialization;
+
+
 string nombreArchivo = @"json\personajes.json";
 
 //instancias 
@@ -12,15 +16,19 @@ FabricaDePersonajes fabricaDePersonajes= new FabricaDePersonajes();
 
 List<Personajes> personajes = fabricaDePersonajes.crearAvengers();
 
+
  mensajeJuego mensaje = new mensajeJuego();
 
 //llamo a el msj de bienvenida
  mensaje.MostrarMensajeBienvenida();
+ Console.WriteLine("PRESIONE CUALQUIER TECLA PARA AVANZAR");
  Console.ReadKey();
  mensaje.ReglasdeJuegos();
  mensaje.SeleccionarPersonaje();
-
 personajesjson.GuardarPersonajes(personajes,nombreArchivo);
+Root clima= await ClimaApi.ObtenerClima();
+Console.WriteLine($"clima{clima.current.condition.text}");
+
   while (true)
   {
  // Verificar si el archivo existe y tiene datos
@@ -68,7 +76,7 @@ personajesjson.GuardarPersonajes(personajes,nombreArchivo);
         // Inicio de combate
  Console.WriteLine("Selecciona el primer personaje para el combate (1-10):");
 
- int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(1, 10);
+ int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(10, -1);
 
 Personajes personajeSeleccionado = personajes[seleccion1];
 
@@ -79,14 +87,14 @@ Combate combate = new Combate();
 
 HistorialJson historialJson = new HistorialJson();
 
-string nombreAHistorial = @"json\historial.json";;
+string nombreAHistorial = @"json\historial.json";
 
 // Inicia el combate
 Personajes ganador = combate.IniciarCombate(personajeSeleccionado, personajes);
 
 if (ganador != null)
 {
-    string informacionFinal = $"{ganador.Datos.Nombre} es el ganador final.";
+    string informacionFinal = $"{ganador.Datos.Nombre} ES EL GANADOR DE TODOS LOS COMBATE Y OBTUVO EL TRONO.";
     historialJson.GuardarGanador(ganador, informacionFinal, nombreAHistorial);
 }
 else
@@ -94,6 +102,9 @@ else
     Console.WriteLine("No hay un ganador claro en el combate.");
 
 } 
+
+
+
 // Preguntar si se quiere volver a jugar
     Console.WriteLine("¿Quieres volver a jugar? (1 para sí, 0 para salir):");
     string entrada = Console.ReadLine();
