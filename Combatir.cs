@@ -91,7 +91,7 @@ using System.Threading.Tasks;
                 }
             }
         }
-        else if (personaje.Datos.Tipo == "villano")
+        else if (personaje.Datos.Tipo == "Villano")
         {
             // Si el clima está malo, aumenta la armadura de los villanos
             if (estadoClima == "malo")

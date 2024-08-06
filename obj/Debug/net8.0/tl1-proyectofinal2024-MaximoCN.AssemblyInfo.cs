@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tl1-proyectofinal2024-MaximoCN")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59507c88d6a0bdea5e23c7865baa2369a52239da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb5d6c853866ba8891f9f829822c0e35eddbce46")]
 [assembly: System.Reflection.AssemblyProductAttribute("tl1-proyectofinal2024-MaximoCN")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tl1-proyectofinal2024-MaximoCN")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
