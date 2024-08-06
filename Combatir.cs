@@ -21,21 +21,24 @@ using System.Threading.Tasks;
         AjustarArmaduraPorClima(personajes, estadoClima);  //SEGUN EL CLIMA AJUSTA LA ARMADURA 2 PTS MAS
 
         Personajes personajeActual = personajeSeleccionado;
+         bool personajeSeleccionadoGanoTodas = true;
+         bool mensajeMostrado = false;
 
         while (personajes.Count > 1)
         {
             Personajes oponente = SeleccionarOponenteAleatorio(personajes, personajeActual);
 
             Console.WriteLine($"{personajeActual.Datos.Nombre} vs {oponente.Datos.Nombre}");
+             Console.WriteLine("========================================================================================================");
 
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             Personajes ganador= CombateEntrePersonajes(personajeActual, oponente);
             
-            if (ganador != null)        //Mejoras las habilidades del ganador
+            if (ganador != null)     
                 {
                    
-                    MejorarHabilidades(ganador);
+                    MejorarHabilidades(ganador);//Mejoras las habilidades del ganador
                 }
 
             if (personajeActual.Caracteristicas.Salud <= 0)
@@ -43,27 +46,42 @@ using System.Threading.Tasks;
                 Console.WriteLine($"{personajeActual.Datos.Nombre} ha sido derrotado. {oponente.Datos.Nombre} sigue luchando.");
                 personajes.Remove(personajeActual);
                 personajeActual = oponente;
+                if (!mensajeMostrado && !personajeSeleccionado.Equals(ganador)) // Se actualiza el marcador solo si el personaje actual no es el seleccionado
+            {
+                Console.WriteLine($"{personajeSeleccionado.Datos.Nombre} PERDISTE EL JUEGO.");
+                personajeSeleccionadoGanoTodas = false;
+                mensajeMostrado=true;
+            }
+
+
+
+
             }
             else
             {
                 Console.WriteLine($"{oponente.Datos.Nombre} ha sido derrotado. {personajeActual.Datos.Nombre} sigue luchando.");
                 personajes.Remove(oponente);
             }
+            Console.WriteLine("\n========================================================================================================");
              Thread.Sleep(3000);
 
         }
+   if (personajes.Count == 1)
+    {
+        Personajes ganador = personajes[0];
+        MejorarHabilidades(ganador);
+        Console.WriteLine($"{ganador.Datos.Nombre} es el ganador final del combate.");
 
-        if (personajes.Count == 1)
+        if (personajeSeleccionado.Equals(ganador) && personajeSeleccionadoGanoTodas)
         {
-            Personajes ganador = personajes[0];
-            MejorarHabilidades(ganador);
-            Console.WriteLine($"{ganador.Datos.Nombre} es el ganador final del combate.");
-            return ganador;
+            Console.WriteLine("MUY BIEN GANASTE EL JUEGO");
         }
 
-        return null;
+        return ganador;
     }
 
+    return null;
+}
     public void AjustarArmaduraPorClima(List<Personajes> personajes, string estadoClima)
 {
     if (estadoClima == "desconocido")
@@ -93,7 +111,7 @@ using System.Threading.Tasks;
         }
         else if (personaje.Datos.Tipo == "Villano")
         {
-            // Si el clima está malo, aumenta la armadura de los villanos
+            // Si el clima está malo, aumenta la armadura de los villanos de la misma forma que el heroe 
             if (estadoClima == "malo")
             {
                 personaje.Caracteristicas.Armadura += 2;
@@ -113,18 +131,18 @@ private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes pers
         while (personaje1.Caracteristicas.Salud > 0 && personaje2.Caracteristicas.Salud > 0)
         {
             Atacar(personaje1, personaje2);
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             if (personaje2.Caracteristicas.Salud <= 0)
             {
-                return personaje1; //Gano pj1
+                return personaje1; //Gano personaej1
             }
 
             Atacar(personaje2, personaje1);
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             if (personaje1.Caracteristicas.Salud <= 0)
             {
-                return personaje2; //Gano pj2
+                return personaje2; //Gano personaje2
                
             }
         }
@@ -139,7 +157,7 @@ private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes pers
 
         if (atacante.Caracteristicas.Explosion > defensor.Caracteristicas.Explosion)
         {
-            ataque = (int)(ataque * 1.1); //MEJORA EL ATAQUE DEL PERSONAJE QUE TENGA MAS EXPLOCION
+            ataque = (int)(ataque * 1.1); //MEJORA EL ATAQUE DEL PERSONAJE QUE TENGA MAS EXPLOSION
         }
 
         int constante = 100; //CAMBIO DE CONSTANTE PARA AUMENTAR DAÑO
@@ -152,7 +170,7 @@ private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes pers
 
         if (atacante.Caracteristicas.Explosion > defensor.Caracteristicas.Explosion)
         {
-            danio += random.Next(1, 10); // Daño adicional aleatorio POR TENER MAYOR EXPLOCION
+            danio += random.Next(1, 10); // Daño adicional aleatorio POR TENER MAYOR EXPLOSION
         }
 
         if (danio>100)
@@ -171,7 +189,7 @@ private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes pers
         }
         else
         {
-            defensor.Caracteristicas.Explosion += 1;
+            defensor.Caracteristicas.Explosion += 1;  //Sube la explosion tras ser atacado
         }
 
         Console.WriteLine($"{atacante.Datos.Nombre} golpea a {defensor.Datos.Nombre} con una efectividad de {efectividad}%, causando {danio} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
@@ -181,7 +199,7 @@ private Personajes SeleccionarOponenteAleatorio(List<Personajes> personajes, Per
     {
         int indiceActual = personajes.IndexOf(actual);
 
-        if (personajes.Count <= 1)
+        if (personajes.Count <= 1) // Control por las dudas 
         {
             Console.WriteLine("No hay suficientes personajes para seleccionar un oponente.");
         }
@@ -195,9 +213,9 @@ private Personajes SeleccionarOponenteAleatorio(List<Personajes> personajes, Per
         return personajes[indiceOponente];
     }
 
-    private void MejorarHabilidades(Personajes personaje)
+    private void MejorarHabilidades(Personajes personaje) //MEJORA LAS HABILIDADES ALEATORIAMENTE TRAS EL COMBATE
     {
-        int saludMejora = random.Next(0, 41);
+        int saludMejora = random.Next(0, 37);
         int destrezaMejora = random.Next(1, 4);
 
         personaje.Caracteristicas.Salud = Math.Min(personaje.Caracteristicas.Salud + saludMejora, 100); 

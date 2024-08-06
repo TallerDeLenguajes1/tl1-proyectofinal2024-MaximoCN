@@ -89,7 +89,7 @@ public class Datos
    {
        Random CaracteristicasRamdom=new Random();
 
-       List<Personajes> avengers = new List<Personajes>();
+       List<Personajes> avengers = new List<Personajes>(); 
 
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Peter parker","10/08/2001",23,"Spiderman"));
 
@@ -112,7 +112,7 @@ public class Datos
         avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano","Hela","09/12/desc",5,"Hela"));
         return avengers;
    }
-    public int SeleccionarPersonaje(int cantidadPersonajes, int Anterior = -1)
+    public int SeleccionarPersonaje(int cantidadPersonajes, int Anterior = -1) //Seleccionar el personaje para comabete
     {
         int seleccion;
         bool esValido;
