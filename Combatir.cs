@@ -21,8 +21,8 @@ using System.Threading.Tasks;
         AjustarArmaduraPorClima(personajes, estadoClima);  //SEGUN EL CLIMA AJUSTA LA ARMADURA 2 PTS MAS
 
         Personajes personajeActual = personajeSeleccionado;
-         bool personajeSeleccionadoGanoTodas = true;
-         bool mensajeMostrado = false;
+         bool personajeSeleccionadoGanoTodas = true;  //Para el msj del ganador
+         bool mensajeMostrado = false;    //Para que no vuelva a mostrar el msj
 
         while (personajes.Count > 1)
         {
@@ -52,9 +52,6 @@ using System.Threading.Tasks;
                 personajeSeleccionadoGanoTodas = false;
                 mensajeMostrado=true;
             }
-
-
-
 
             }
             else
