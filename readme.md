@@ -18,6 +18,7 @@ ganador de todos los comabtes aparecera un mensaje que dice  "MUY BIEN GANASTE E
 "PERDISTE EL JUEGO" y continuara con las batallas de los demas personajes. Al finalizar el juego habra un ganador y este se guardara en 
 un historial luego,tendras la opcion de volver a jugar o salir del juego.
 ## Recurso API:
+La api obtiene el clima actual de la ciudad Paris y es implementada en el juego.
 API:("https://www.weatherapi.com/)
 
 
