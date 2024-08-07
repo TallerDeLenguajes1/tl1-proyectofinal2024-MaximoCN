@@ -9,7 +9,7 @@ public class PersonajesJson{
     const string NombreArchivo = "personajes.json";
      private HelperDeJson miHelperdeArchivos = new HelperDeJson();
 
-       public void GuardarPersonajes(List<Personajes> personaje,string NombreArchivo )
+       public void GuardarPersonajes(List<Personaje> personaje,string NombreArchivo )
        {
            // Console.WriteLine("--Serializando--");
             string persoJson = JsonSerializer.Serialize(personaje);
@@ -20,12 +20,12 @@ public class PersonajesJson{
        }
 
       
-      public List<Personajes> LeerPersonajes(string NombreArchivo)
+      public List<Personaje> LeerPersonajes(string NombreArchivo)
        {
           // Console.WriteLine("--Abriendo--");
             string jsonDocument = miHelperdeArchivos.AbrirArchivoTexto(NombreArchivo);
             //Console.WriteLine("--Deserializando--");
-            var listadopersonajes = JsonSerializer.Deserialize<List<Personajes>>(jsonDocument);
+            var listadopersonajes = JsonSerializer.Deserialize<List<Personaje>>(jsonDocument);
             //Console.WriteLine("--Mostrando datos recuperardos--");
             return listadopersonajes;
        }
@@ -49,7 +49,7 @@ public class HistorialJson  // HistorialJson maneja la serialización y deserial
 {
     private HelperDeJson miHelperdeArchivos = new HelperDeJson();
 
-    public void GuardarGanador(Personajes ganador, string informacion, string nombreArchivo) // Guarda la info de una partida ganada en el archivo JSON .
+    public void GuardarGanador(Personaje ganador, string informacion, string nombreArchivo) // Guarda la info de una partida ganada en el archivo JSON .
 {
     List<Partida> historial = LeerGanadores(nombreArchivo); // Lee el historial de partidas del archivo JSON.
 
@@ -101,7 +101,7 @@ public class HistorialJson  // HistorialJson maneja la serialización y deserial
 
     public class Partida    //representa una partida, con información del ganador.
     {
-        public Personajes Ganador { get; set; }
+        public Personaje Ganador { get; set; }
         public string Informacion { get; set; }
     }
 }

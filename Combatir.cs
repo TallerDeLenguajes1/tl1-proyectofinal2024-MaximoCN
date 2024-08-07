@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 {
      private Random random = new Random();
 
-   public async Task<Personajes> IniciarCombate(Personajes personajeSeleccionado, List<Personajes> personajes)
+   public async Task<Personaje> IniciarCombate(Personaje personajeSeleccionado, List<Personaje> personajes)
     {
         if (personajes == null || personajes.Count < 2)//Control solo por las dudas
         {
@@ -20,20 +20,20 @@ using System.Threading.Tasks;
         string estadoClima = ClimaApi.ObtenerEstadoClima(clima);
         AjustarArmaduraPorClima(personajes, estadoClima);  //SEGUN EL CLIMA AJUSTA LA ARMADURA 2 PTS MAS
 
-        Personajes personajeActual = personajeSeleccionado;
+        Personaje personajeActual = personajeSeleccionado;
          bool personajeSeleccionadoGanoTodas = true;  //Para el msj del ganador
          bool mensajeMostrado = false;    //Para que no vuelva a mostrar el msj
 
         while (personajes.Count > 1)
         {
-            Personajes oponente = SeleccionarOponenteAleatorio(personajes, personajeActual);
+            Personaje oponente = SeleccionarOponenteAleatorio(personajes, personajeActual);
 
             Console.WriteLine($"{personajeActual.Datos.Nombre} vs {oponente.Datos.Nombre}");
              Console.WriteLine("========================================================================================================");
 
             Thread.Sleep(2000);
 
-            Personajes ganador= CombateEntrePersonajes(personajeActual, oponente);
+            Personaje ganador= CombateEntrePersonajes(personajeActual, oponente);
             
             if (ganador != null)     
                 {
@@ -60,12 +60,12 @@ using System.Threading.Tasks;
                 personajes.Remove(oponente);
             }
             Console.WriteLine("\n========================================================================================================");
-             Thread.Sleep(3000);
+             Thread.Sleep(2000);
 
         }
    if (personajes.Count == 1)
     {
-        Personajes ganador = personajes[0];
+        Personaje ganador = personajes[0];
         MejorarHabilidades(ganador);
         Console.WriteLine($"{ganador.Datos.Nombre} es el ganador final del combate.");
 
@@ -79,7 +79,7 @@ using System.Threading.Tasks;
 
     return null;
 }
-    public void AjustarArmaduraPorClima(List<Personajes> personajes, string estadoClima)
+    public void AjustarArmaduraPorClima(List<Personaje> personajes, string estadoClima)
 {
     if (estadoClima == "desconocido")
     {
@@ -123,7 +123,7 @@ using System.Threading.Tasks;
     }
     }
 
-private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes personaje2)
+private Personaje CombateEntrePersonajes(Personaje personaje1, Personaje personaje2)
     {
         while (personaje1.Caracteristicas.Salud > 0 && personaje2.Caracteristicas.Salud > 0)
         {
@@ -146,7 +146,7 @@ private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes pers
        return null;
     }
 
-    private void Atacar(Personajes atacante, Personajes defensor)
+    private void Atacar(Personaje atacante, Personaje defensor)
     {
         int ataque = atacante.Caracteristicas.Destreza * atacante.Caracteristicas.Fuerza;
         int defensa = defensor.Caracteristicas.Armadura * defensor.Caracteristicas.Velocidad;
@@ -192,7 +192,7 @@ private Personajes CombateEntrePersonajes(Personajes personaje1, Personajes pers
         Console.WriteLine($"{atacante.Datos.Nombre} golpea a {defensor.Datos.Nombre} con una efectividad de {efectividad}%, causando {danio} de daño. Salud restante de {defensor.Datos.Nombre}: {defensor.Caracteristicas.Salud}");
     }
 
-private Personajes SeleccionarOponenteAleatorio(List<Personajes> personajes, Personajes actual)
+private Personaje SeleccionarOponenteAleatorio(List<Personaje> personajes, Personaje actual)
     {
         int indiceActual = personajes.IndexOf(actual);
 
@@ -210,7 +210,7 @@ private Personajes SeleccionarOponenteAleatorio(List<Personajes> personajes, Per
         return personajes[indiceOponente];
     }
 
-    private void MejorarHabilidades(Personajes personaje) //MEJORA LAS HABILIDADES ALEATORIAMENTE TRAS EL COMBATE
+    private void MejorarHabilidades(Personaje personaje) //MEJORA LAS HABILIDADES ALEATORIAMENTE TRAS EL COMBATE
     {
         int saludMejora = random.Next(0, 37);
         int destrezaMejora = random.Next(1, 4);

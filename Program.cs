@@ -11,22 +11,18 @@ PersonajesJson personajesjson= new PersonajesJson();
 
 FabricaDePersonajes fabricaDePersonajes= new FabricaDePersonajes();
 
-List<Personajes> personajes = fabricaDePersonajes.crearAvengers();
+List<Personaje> personajes = fabricaDePersonajes.crearAvengers();
 
-
- mensajeJuego mensaje = new mensajeJuego();
+mensajeJuego mensaje = new mensajeJuego();
 
 //llamo a el msj de bienvenida
  mensaje.MostrarMensajeBienvenida();
  Console.WriteLine("PRESIONE CUALQUIER TECLA PARA AVANZAR");
  Console.ReadKey();
- mensaje.ReglasdeJuegos();
  mensaje.SeleccionarPersonaje();
 personajesjson.GuardarPersonajes(personajes,nombreArchivo);
-Root clima= await ClimaApi.ObtenerClima();
 
-
-  while (true)
+while (true)
   {
  // Verificar si el archivo existe y tiene datos
       if (personajesjson.Existe(nombreArchivo))
@@ -40,7 +36,7 @@ Root clima= await ClimaApi.ObtenerClima();
                  personajesjson.GuardarPersonajes(personajes, nombreArchivo);
                 
             }
-   //Mostrar  los datos guardados 
+   
   Console.ReadKey();
   Console.Clear();
   Console.WriteLine("LOS PERSONAJES SON:");
@@ -75,7 +71,7 @@ Root clima= await ClimaApi.ObtenerClima();
 
  int seleccion1 = fabricaDePersonajes.SeleccionarPersonaje(10, -1);
 
-Personajes personajeSeleccionado = personajes[seleccion1];
+Personaje personajeSeleccionado = personajes[seleccion1];
 
 Console.WriteLine($"Seleccionaste a {personajeSeleccionado.Datos.Nombre}");
 
@@ -87,7 +83,7 @@ HistorialJson historialJson = new HistorialJson();
 string nombreAHistorial = @"json\historial.json";
 
 // Inicia el combate
-Personajes ganador = await combate.IniciarCombate(personajeSeleccionado, personajes);
+Personaje ganador = await combate.IniciarCombate(personajeSeleccionado, personajes);
 
 if (ganador != null)
 {
@@ -99,7 +95,6 @@ else
     Console.WriteLine("No hay un ganador claro en el combate.");
 
 } 
-
 
 // Preguntar si se quiere volver a jugar
     Console.WriteLine("¿Quieres volver a jugar? (1 para sí, 0 para salir):");
@@ -113,7 +108,7 @@ else
         }
         else if (decision == 1)
         {
-            // Volver a jugar, el bucle continuará y recargará los personajes
+            // Volver a jugar, el bucle continuara
             continue;
         }
         else

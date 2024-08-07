@@ -4,18 +4,18 @@ namespace PersonajeEspacio;
 
 
 
-public class Personajes
+public class Personaje
 {
      public Caracteristicas Caracteristicas { get; set; }
-    private Datos datos;
-    public Datos Datos { get => datos; set => datos = value; }
+    
+    public Datos Datos { get ; set; }
 
-    public Personajes(int velocidad,int destreza,int fuerza,int armadura,int explosion,int salud,string tipo,string nombre, string fechadeNacimiento,int edad, string apodo){
+    public Personaje(int velocidad,int destreza,int fuerza,int armadura,int explosion,int salud,string tipo,string nombre, string fechadeNacimiento,int edad, string apodo){
     
       Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud,explosion);
       Datos= new Datos(tipo,nombre,fechadeNacimiento,edad,apodo);
     }
-    public Personajes()   //Constructor vacio para deserializar 
+    public Personaje()   //Constructor vacio para deserializar 
     {
     }
 
@@ -79,36 +79,36 @@ public class Datos
 
  public class FabricaDePersonajes
  {
-     private List<Personajes> avengers;
+     private List<Personaje> avengers;
     public FabricaDePersonajes()
     {
         avengers = crearAvengers();
     }
-   public List<Personajes> crearAvengers()
+   public List<Personaje> crearAvengers()
    {
        Random CaracteristicasRamdom=new Random();
 
-       List<Personajes> avengers = new List<Personajes>(); 
+       List<Personaje> avengers = new List<Personaje>(); 
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Peter parker","10/08/2001",23,"Spiderman"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Peter parker","10/08/2001",23,"Spiderman"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Iron Man", "03/05/1970", 54, "Tony Stark"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Capitan America", "04/07/1918", 106, "Cap"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe", "Capitan America", "04/07/1918", 106, "Cap"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Thor", "12/04/desc", 300, "Dios del Trueno"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Thor", "12/04/desc", 300, "Dios del Trueno"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Hulk", "30/12/1979", 43, "Bruce Banner"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Heroe", "Hulk", "30/12/1979", 43, "Bruce Banner"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Villano", "Thanos", "01/01/desc", 300, "Thanos"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10), "Villano", "Thanos", "01/01/desc", 300, "Thanos"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano", "Loki", "01/01/desc", 300, "Loki"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano", "Loki", "01/01/desc", 300, "Loki"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano", "Ultron", "01/01/desc", 5, "Ultron"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano", "Ultron", "01/01/desc", 5, "Ultron"));
 
-        avengers.Add(new Personajes( CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe","Hawkeye","09/02/1969",45,"ojo de halcon"));
+        avengers.Add(new Personaje( CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Heroe","Hawkeye","09/02/1969",45,"ojo de halcon"));
 
-        avengers.Add(new Personajes(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano","Hela","09/12/desc",5,"Hela"));
+        avengers.Add(new Personaje(CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),CaracteristicasRamdom.Next(1,10),100,CaracteristicasRamdom.Next(1,10),"Villano","Hela","09/12/desc",5,"Hela"));
         return avengers;
    }
     public int SeleccionarPersonaje(int cantidadPersonajes, int Anterior = -1) //Seleccionar el personaje para comabete

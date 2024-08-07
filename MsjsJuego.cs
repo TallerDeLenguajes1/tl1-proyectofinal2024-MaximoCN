@@ -23,12 +23,7 @@ namespace mensajesJuego;
 "¡Que comience la batalla en Avengers Game!";
             Console.WriteLine(Ascii);
         }
-        public void ReglasdeJuegos()
-        {
-            string mensaje="El juego se basa en elegir a tu Jugador para que compitan, iniciara la pelea el personaje que elijas y luego tu openente te atacara, y asi sucesivamente,cada vez que tu o tu oponente reciban un ataque su caracteristica Explosion aumentara un punto de manera progresiva hasta llegar a 10 esta caracteristica(Explosion), aumenta tu ataque un 10% si es eres mas explosivo que el rival,perdera la pelea el jugador que quede sin vida, mientras que el personaje Ganador tendra un aumento de sus habilidades(Caracteristicas) aleatoriamente y seguira combatiendo hasta que no hayan mas personajes y sera el ganador final. ";
-            Console.WriteLine(mensaje);
-        }
-
+       
     public void SeleccionarPersonaje(){
         string Ascii2=@"
 ██╗███╗░░██╗██╗░█████╗░██╗░█████╗░  ███████╗██╗░░░░░  ░░░░░██╗██╗░░░██╗███████╗░██████╗░░█████╗░
