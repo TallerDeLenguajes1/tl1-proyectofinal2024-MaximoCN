@@ -6,7 +6,7 @@ namespace PersonajeEspacio;
 
 public class Personaje
 {
-     public Caracteristicas Caracteristicas { get; set; }
+     public Caracteristicas Caracteristicas { get; set; } 
     
     public Datos Datos { get ; set; }
 
@@ -14,7 +14,7 @@ public class Personaje
     
       Caracteristicas = new Caracteristicas(velocidad,destreza, fuerza, armadura, salud,explosion);
       Datos= new Datos(tipo,nombre,fechadeNacimiento,edad,apodo);
-    }
+    } //Constructor 
     public Personaje()   //Constructor vacio para deserializar 
     {
     }

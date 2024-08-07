@@ -36,7 +36,6 @@ while (true)
                 
             }
    
-  Console.ReadKey();
   Console.Clear();
   Console.WriteLine("LOS PERSONAJES SON:");
   
@@ -96,29 +95,35 @@ else
 } 
 
 // Preguntar si se quiere volver a jugar
-    Console.WriteLine("¿Quieres volver a jugar? (1 para sí, 0 para salir):");
-    string entrada = Console.ReadLine();
-
-    if (int.TryParse(entrada, out int decision))
+bool entradaValida = false;
+while (!entradaValida)
     {
-        if (decision == 0)
+        Console.WriteLine("¿Quieres volver a jugar? (1 para sí, 0 para salir):");
+        string entrada = Console.ReadLine();
+
+        if (int.TryParse(entrada, out int decision))
         {
-            break; // Salir del bucle y finalizar el programa
-        }
-        else if (decision == 1)
-        {
-            // Volver a jugar, el bucle continuara
-            continue;
+            if (decision == 0)
+            {
+                return; // Salir del bucle y finalizar el programa
+            }
+            else if (decision == 1)
+            {
+                // Volver a jugar, el bucle continuará
+                entradaValida = true;
+            }
+            else
+            {
+                Console.WriteLine("Entrada inválida. Por favor, ingresa 1 para sí o 0 para salir.");
+            }
         }
         else
         {
-            Console.WriteLine("Entrada inválida. Por favor, ingresa 1 para sí o 0 para salir.");
+            Console.WriteLine("Entrada no válida. Por favor, ingresa un número válido.");
         }
     }
-    else
-    {
-        Console.WriteLine("Entrada no válida. Por favor, ingresa un número válido.");
-    }
+    Console.WriteLine("Presione cualquier tecla para continuar...");
+    Console.ReadKey();
 
  }
 
