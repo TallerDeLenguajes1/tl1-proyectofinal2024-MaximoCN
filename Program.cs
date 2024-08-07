@@ -2,7 +2,6 @@
 using PersonajeEspacio;
 using mensajesJuego;
 using CombatiendoEspacio;
-using ApiC;
 
 string nombreArchivo = @"json\personajes.json";
 

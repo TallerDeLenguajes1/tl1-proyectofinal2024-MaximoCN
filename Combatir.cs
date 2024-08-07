@@ -212,8 +212,8 @@ private Personaje SeleccionarOponenteAleatorio(List<Personaje> personajes, Perso
 
     private void MejorarHabilidades(Personaje personaje) //MEJORA LAS HABILIDADES ALEATORIAMENTE TRAS EL COMBATE
     {
-        int saludMejora = random.Next(0, 37);
-        int destrezaMejora = random.Next(1, 4);
+        int saludMejora = random.Next(0, 21); 
+        int destrezaMejora = random.Next(1, 3);
 
         personaje.Caracteristicas.Salud = Math.Min(personaje.Caracteristicas.Salud + saludMejora, 100); 
         personaje.Caracteristicas.Destreza = Math.Min(personaje.Caracteristicas.Destreza + destrezaMejora, 10);

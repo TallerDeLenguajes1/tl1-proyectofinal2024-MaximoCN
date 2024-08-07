@@ -1,0 +1,42 @@
+[
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 68,
+        "Fuerza": 7,
+        "Armadura": 4,
+        "Destreza": 6,
+        "Velocidad": 1,
+        "Explosion": 3
+      },
+      "Datos": {
+        "Apodo": "Hela",
+        "Edad": 5,
+        "FechadeNacimiento": "09/12/desc",
+        "Nombre": "Hela",
+        "Tipo": "Villano"
+      }
+    },
+    "Informacion": "Hela ES EL GANADOR DE TODOS LOS COMBATE Y OBTUVO EL TRONO."
+  },
+  {
+    "Ganador": {
+      "Caracteristicas": {
+        "Salud": 100,
+        "Fuerza": 9,
+        "Armadura": 8,
+        "Destreza": 10,
+        "Velocidad": 9,
+        "Explosion": 10
+      },
+      "Datos": {
+        "Apodo": "Spiderman",
+        "Edad": 23,
+        "FechadeNacimiento": "10/08/2001",
+        "Nombre": "Peter parker",
+        "Tipo": "Heroe"
+      }
+    },
+    "Informacion": "Peter parker ES EL GANADOR DE TODOS LOS COMBATE Y OBTUVO EL TRONO."
+  }
+]
